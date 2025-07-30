@@ -9,7 +9,9 @@
 #define KEY_LEN 16u
 #define TIME_LEN 8u
 //#define OID_LEN 8u
-#define GID_LEN 40u
+#define GID_LEN 5u
+
+//int init_hash(EVP_MD_CTX * ctx, EVP_MD_
 
 int main()
 {
@@ -25,7 +27,7 @@ int main()
       fprintf(stderr, "Can't get time.\n");
       exit(EXIT_FAILURE);
    }
-   oid = generate_oid("wlp1s0");
+   oid = generate_oid("enp91s0");
    if(oid == 0) {
       fprintf(stderr, "Can't generate oid.\n");
       exit(EXIT_FAILURE);
@@ -113,13 +115,4 @@ int main()
 
    exit(EXIT_SUCCESS);
 }
-
-
-
-
-
-
-
-
-
 

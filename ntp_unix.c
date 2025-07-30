@@ -1,3 +1,4 @@
+#define _GNU_SOURCE
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -66,7 +67,7 @@ uint64_t get_ntp_time()
    // in case struct is padded out, copy straight to uint64_t
    uint32_t * time_ptr = (uint32_t *)(&out_time);
    time_ptr = mempcpy(time_ptr, &(time.ntp_sec), 4);
-   time_ptr = memcpy(time_ptr, &(time.ntp_frac), 4);
+   time_ptr = mempcpy(time_ptr, &(time.ntp_frac), 4);
 
    return out_time;
 }
